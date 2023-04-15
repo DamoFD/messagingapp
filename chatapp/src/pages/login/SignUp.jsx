@@ -18,6 +18,7 @@ const SignUp = () => {
           initialValues= {{
             username: "",
             password: "",
+            confirmPassword: '',
           }}
           validationSchema= {Yup.object({
             username: Yup.string()
@@ -28,6 +29,9 @@ const SignUp = () => {
               .required("Please enter your password.")
               .min(6, "Password is too short.")
               .max(28, "Password is too long."),
+            confirmPassword: Yup.string()
+              .required('Please confirm your password.')
+              .oneOf([Yup.ref('password'), null], 'Passwords mush match.')
           })}
           onSubmit= {(values, actions) => {
             alert(JSON.stringify(values, null, 2));
