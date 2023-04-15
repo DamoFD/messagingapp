@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import LogIn from './pages/login/LogIn';
 import SignUp from './pages/login/SignUp';
+import PrivateRoutes from './components/PrivateRoutes';
 import './App.css'
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
                 <Route path='*' element={<Homepage />} />
                 <Route path='/login' element={<LogIn />} />
                 <Route path='/SignUp' element={<SignUp />} />
+                <Route element={<PrivateRoutes />}>
+                <Route path='/home' element={<Homepage />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
