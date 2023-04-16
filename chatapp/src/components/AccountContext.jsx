@@ -26,7 +26,7 @@ const UserContext = ({ children }) => {
           setUser({ loggedIn: false });
           return;
         }
-        navigate("/home");
+        navigate("/chat");
         setUser({ ...data });
       });
   }, []);

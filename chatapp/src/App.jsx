@@ -6,6 +6,7 @@ import LogIn from './pages/login/LogIn';
 import SignUp from './pages/login/SignUp';
 import PrivateRoutes from './components/PrivateRoutes';
 import UserContext from './components/AccountContext';
+import Chat from './pages/Chat';
 import './App.css'
 
 function App() {
@@ -14,11 +15,10 @@ function App() {
         <UserContext>
             <Routes>
                 <Route path='/' element={<Homepage />} />
-                <Route path='*' element={<Homepage />} />
                 <Route path='/login' element={<LogIn />} />
                 <Route path='/SignUp' element={<SignUp />} />
                 <Route element={<PrivateRoutes />}>
-                <Route path='/home' element={<Homepage />} />
+                <Route path='/chat' element={<Chat />} />
                 </Route>
             </Routes>
             </UserContext>

@@ -63,7 +63,7 @@ const LogIn = () => {
                 if (data.status) {
                   setError(data.status);
                 } else if (data.loggedIn) {
-                  navigate("/home");
+                  navigate("/chat");
                 }
               });
           }}
