@@ -5,11 +5,13 @@ import Homepage from './pages/Homepage';
 import LogIn from './pages/login/LogIn';
 import SignUp from './pages/login/SignUp';
 import PrivateRoutes from './components/PrivateRoutes';
+import UserContext from './components/AccountContext';
 import './App.css'
 
 function App() {
     return (
         <BrowserRouter>
+        <UserContext>
             <Routes>
                 <Route path='/' element={<Homepage />} />
                 <Route path='*' element={<Homepage />} />
@@ -19,6 +21,7 @@ function App() {
                 <Route path='/home' element={<Homepage />} />
                 </Route>
             </Routes>
+            </UserContext>
         </BrowserRouter>
     )
 }

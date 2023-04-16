@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -7,6 +7,7 @@ import { AccountContext } from "../../components/AccountContext";
 
 const LogIn = () => {
   const { setUser } = useContext(AccountContext);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   return (
     <>
@@ -14,6 +15,7 @@ const LogIn = () => {
         <h1 className="text-7xl text-center font-bold p-10 pb-8 text-white">
           Login
         </h1>
+        <p>{error}</p>
         <p className="text-gray-400 text-center text-xl">
           Need an account?{" "}
           <Link to={"/signup"}>
@@ -58,7 +60,11 @@ const LogIn = () => {
               .then((data) => {
                 if (!data) return;
                 setUser({ ...data });
-                navigate("/home");
+                if (data.status) {
+                  setError(data.status);
+                } else if (data.loggedIn) {
+                  navigate("/home");
+                }
               });
           }}
         >
