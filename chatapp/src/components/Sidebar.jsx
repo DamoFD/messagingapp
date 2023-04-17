@@ -6,7 +6,7 @@ import { FriendContext } from "../pages/Chat";
 import AddFriendModal from "./AddFriendModal";
 
 const Sidebar = ({ handleTabChange }) => {
-  const { friendList, setFriendList } = useContext(FriendContext);
+  const { friendList } = useContext(FriendContext);
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleModalOpen = () => {
@@ -39,6 +39,7 @@ const Sidebar = ({ handleTabChange }) => {
           <div
             className="flex items-center border-2 border-b-4 border-gray-700 m-10 mb-0 mt-2 pt-2 pb-2 border-b-purple-600 cursor-pointer hover:bg-gray-600"
             onClick={() => handleTabChange(0)}
+            key={`friend:${friend}`}
           >
             <Avatar className="ml-10" />
             <p className="ml-2 text-xl">{friend.username}</p>

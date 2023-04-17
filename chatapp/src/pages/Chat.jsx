@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import ChatBox from "../components/ChatBox";
 import useSocketSetup from "../hooks/useSocketSetup";
@@ -8,7 +8,17 @@ export const FriendContext = createContext();
 function Chat() {
   const [tabValue, setTabValue] = useState(null);
   const [friendList, setFriendList] = useState([]);
-  useSocketSetup();
+
+  console.log("Chat component rendering")
+
+  useEffect(() => {
+    console.log("Chat component mounted");
+    return () => {
+      console.log("Chat component unmounted");
+    }
+  }, []);
+
+  useSocketSetup(setFriendList);
 
   return (
     <FriendContext.Provider value={{ friendList, setFriendList }}>
