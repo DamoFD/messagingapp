@@ -7,9 +7,11 @@ import SignUp from './pages/login/SignUp';
 import PrivateRoutes from './components/PrivateRoutes';
 import UserContext from './components/AccountContext';
 import Chat from './pages/Chat';
+import socket from "./util/socket";
 import './App.css'
 
 function App() {
+    socket.connect();
     return (
         <BrowserRouter>
         <UserContext>
