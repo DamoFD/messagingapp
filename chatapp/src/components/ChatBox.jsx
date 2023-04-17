@@ -15,7 +15,7 @@ function ChatBox({ value }) {
         )
     } else {
         return (
-            <h1>Start Chatting!</h1>
+            <h1>Select a friend from your friends list or Add a Friend to Start Chatting!</h1>
         )
     }
 }

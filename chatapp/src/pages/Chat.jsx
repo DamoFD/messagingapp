@@ -6,7 +6,11 @@ export const FriendContext = createContext();
 
 function Chat() {
   const [tabValue, setTabValue] = useState(null);
-  const [friendList, setFriendList] = useState([]);
+  const [friendList, setFriendList] = useState([
+    { username: "John Doe", connected: false },
+    { username: "Ryan Reynolds", connected: true},
+    { username: "Ryan Reynolds", connected: true},
+  ]);
 
   return (
     <FriendContext.Provider value={{ friendList, setFriendList }}>
