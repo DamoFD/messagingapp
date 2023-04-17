@@ -1,16 +1,14 @@
 import React, { useState, createContext } from "react";
 import Sidebar from "../components/Sidebar";
 import ChatBox from "../components/ChatBox";
+import useSocketSetup from "../hooks/useSocketSetup";
 
 export const FriendContext = createContext();
 
 function Chat() {
   const [tabValue, setTabValue] = useState(null);
-  const [friendList, setFriendList] = useState([
-    { username: "John Doe", connected: false },
-    { username: "Ryan Reynolds", connected: true},
-    { username: "Ryan Reynolds", connected: true},
-  ]);
+  const [friendList, setFriendList] = useState([]);
+  useSocketSetup();
 
   return (
     <FriendContext.Provider value={{ friendList, setFriendList }}>
