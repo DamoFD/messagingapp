@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import socket from "../util/socket";
 import { AccountContext } from "../components/AccountContext";
 
-const useSocketSetup = (setFriendList) => {
+const useSocketSetup = (setFriendList, setMessages) => {
   const { setUser } = useContext(AccountContext);
   const friendListRef = useRef(null);
 
@@ -19,6 +19,9 @@ const useSocketSetup = (setFriendList) => {
       friendListRef.current = friendList;
       setFriendList(friendListRef.current);
     });
+    socket.on("messages", messages => {
+      setMessages(messages)
+    })
     socket.on("connected", (status, username) => {
       setFriendList(prevFriends => {
         return [...prevFriends].map(friend => {
@@ -38,6 +41,9 @@ const useSocketSetup = (setFriendList) => {
     return () => {
       socket.off("connect_error");
       socket.disconnect();
+      socket.off("connected");
+      socket.off("friends");
+      socket.off("messages");
     };
   }, []);
 };

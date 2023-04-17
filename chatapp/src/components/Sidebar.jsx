@@ -38,7 +38,7 @@ const Sidebar = ({ handleTabChange }) => {
         {friendList.map((friend) => (
           <div
             className="flex items-center border-2 border-b-4 border-gray-700 m-10 mb-0 mt-2 pt-2 pb-2 border-b-purple-600 cursor-pointer hover:bg-gray-600"
-            onClick={() => handleTabChange(0)}
+            onClick={() => handleTabChange(friend.username)}
             key={`friend:${friend}`}
           >
             <Avatar className="ml-10" />
