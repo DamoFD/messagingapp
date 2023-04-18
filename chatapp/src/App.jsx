@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import LogIn from './pages/login/LogIn';
@@ -13,7 +13,7 @@ import './App.css'
 function App() {
     socket.connect();
     return (
-        <BrowserRouter>
+        <HashRouter>
         <UserContext>
             <Routes>
                 <Route path='/' element={<Homepage />} />
@@ -24,7 +24,7 @@ function App() {
                 </Route>
             </Routes>
             </UserContext>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
