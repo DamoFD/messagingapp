@@ -21,7 +21,11 @@ const useSocketSetup = (setFriendList, setMessages) => {
     });
     socket.on("messages", messages => {
       setMessages(messages)
-    })
+    });
+    socket.on("dm", message => {
+      console.log("Received DM:", message);
+      setMessages(prevMsgs => [message, ...prevMsgs]);
+    });
     socket.on("connected", (status, username) => {
       setFriendList(prevFriends => {
         return [...prevFriends].map(friend => {
