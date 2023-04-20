@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = new io(process.env.VITE_REACT_APP_SERVER_URL, {
+const socket = new io('https://damion-chat-app.onrender.com', {
     autoConnect: false,
     withCredentials: true,
 })

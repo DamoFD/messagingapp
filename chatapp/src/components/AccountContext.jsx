@@ -7,8 +7,8 @@ const UserContext = ({ children }) => {
   const [user, setUser] = useState({ loggedIn: null });
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(process.env.VITE_REACT_APP_SERVER_URL)
-    fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {
+    console.log('https://damion-chat-app.onrender.com')
+    fetch(`https://damion-chat-app.onrender.com/auth/login`, {
       credentials: "include",
     })
       .catch((err) => {
