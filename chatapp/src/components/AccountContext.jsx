@@ -7,7 +7,7 @@ const UserContext = ({ children }) => {
   const [user, setUser] = useState({ loggedIn: null });
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(process.env.REACT_APP_SERVER_URL)
+    console.log(process.env.VITE_REACT_APP_SERVER_URL)
     fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {
       credentials: "include",
     })
